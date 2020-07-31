@@ -1,0 +1,63 @@
+:root {
+  --main-dark: #222;
+  --main-light: #888;
+  --minor-dark: yellow;
+  --minor-light: #dbd4c1;
+  font-size: 62.5%;
+  --h1: 3.2rem;
+  --h2: 2.8rem;
+  --h3: 2.1rem;
+  --h4: 1.8rem;
+} 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Default
+----------------------------------------------------------------------*/
+body,
+button {
+  font-family: 'IBM Plex Serif', serif;
+  color: var(--main-dark);
+  text-align: center;
+}
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+h1 {
+  font-size: var(--h1);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Modal
+----------------------------------------------------------------------*/
+#modal {
+  background-color: var(--minor-light);
+  display: none;
+}
+
+/* Splash
+----------------------------------------------------------------------*/
+#splash {
+  width: 75vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#quotesection h1 {
+  font-size: 6rem;
+  margin: 1em;
+}
+button#open-modal {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  margin: 1em;
+  padding: 0.5em 1.25em;
+}
