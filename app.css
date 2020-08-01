@@ -21,13 +21,14 @@
 body,
 button {
   font-family: 'IBM Plex Serif', serif;
+  font-style: italic;
   color: var(--main-dark);
   text-align: center;
 }
 #container {
-  background-size: cover;
+  /* background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   opacity: 0.8;
   /* filter: blur(8px); */
 }
@@ -40,22 +41,85 @@ h1 {
   font-weight: 600;
   font-style: italic;
 }
+h2 {
+  font-size: var(--h2);
+}
+h3 {
+  font-size: var(--h3);
+}
 
 /* Modal
 ----------------------------------------------------------------------*/
 #modal {
-  background-color: var(--minor-light);
   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: background-color 2s;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 1;
+}
+#modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}
+#card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 320px;
+  width: 800px;
+  background-color: var(--minor-light);
+  margin: 0 auto;
+}
+#secondtimer {
+  width: 30vw;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: var(--minor-dark);
+}
+#secondtimer h3 {
+  margin: 0.25em 0;
+}
+h1#chance  {
+  font-size: 14rem;
+  padding: 0 0.25em;
+  background-color: #fff;
+  display: inline;
+  line-height: 1.45em;
+  text-shadow: 3px 3px 0 var(--minor-dark);
+  border: 2px solid var(--main-light);
+}
+#app {
+  width: 70vw;
+}
+#cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#card1,
+#card2 {
+  text-align: center;
+  margin: 1em;
 }
 
 /* Splash
 ----------------------------------------------------------------------*/
 #splash {
-  width: 75vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#quotesection {
+  position: relative;
 }
 #quotesection h1 {
   font-size: 12rem;
@@ -66,14 +130,19 @@ h1 {
 #quotedisplay {
   font-size: var(--h2);
   font-style: italic;
-  margin: 0.25em;
+  /* margin: 1em; */
+  height: 90px;
 }
 #quotename {
   font-size: 1.6rem;
   font-style: italic;
   margin: 0.25em;
+  height: 30px;
 }
-button#open-modal {
+#addbtn {
+  height: 100px;
+}
+button.open-modal {
   font-size: 1.6rem;
   font-weight: 600;
   font-style: italic;
@@ -84,12 +153,66 @@ button#open-modal {
   border: 2px solid var(--minor-light);
   transition: 1s;
 }
-button#open-modal:hover,
-button#open-modal:focus {
+button.open-modal:hover,
+button.open-modal:focus {
   appearance: none;
   border: 2px solid var(--main-light);
   color: var(--minor-light);
   font-weight: 800; 
   cursor: pointer;
   border-radius: 10px;
+  text-shadow: 1px 1px 0 var(--main-dark);
+}
+.hidden {
+  visibility: hidden;
+}
+.opacity {
+  opacity: 0;
+}
+
+/* Animation
+----------------------------------------------------------------------*/
+.fade-in {
+  animation: fadeIn ease 10s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: fadeOut ease 10s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-up {
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+/* Media Query
+----------------------------------------------------------------------*/
+@media only screen and (max-width: 480px) {
+  #wrapper {
+    width: 100%;
+  }
+  #splash {
+    width: 100vw;
+  }
+  #quotesection h1 {
+    font-size: 8rem;
+  }
 }

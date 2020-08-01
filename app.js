@@ -2,11 +2,13 @@
 //   document.getElementById('container').style.backgroundImage = "url('https://source.unsplash.com/user/olexa/800x600')";
 // }
 
+
 const container = document.querySelector('#container')
-const openModal = document.querySelector('#open-modal')
 const modalPanel = document.querySelector('#modal')
+const luckyTitle = document.querySelector('#luckytitle')
 const quoteDisplay = document.querySelector('#quotedisplay')
 const quoteName = document.querySelector('#quotename')
+const addBtn = document.querySelector('#addbtn')
 
 let luckQuotes = [
   {
@@ -30,26 +32,35 @@ let luckQuotes = [
     name: 'Ernest Hemingway'
   },
   {
-    quote: 'Some people, through luck and skill, end up with a lot of assets. If you\'re good at kicking a ball, writing software, investing in stocks, it pays extremely well.',
-    name: 'Bill Gates'
-  },
-  {
     quote: 'I have never believed much in luck, and my sense of humor has tended to walk on the dark side.',
     name: 'Hunter S. Thompson'
   }
 ]
 
+
 // display quote after 1 sec
 function quotePick() {
   let x = Math.floor(Math.random()*luckQuotes.length)
-  console.log(x)
   quoteDisplay.textContent = luckQuotes[x]['quote']
   quoteName.textContent = '– '+ luckQuotes[x]['name']
+  quoteDisplay.classList.add('fade-in')
+  quoteName.classList.add('fade-in')
+  const createOpenBtn = document.createElement('button')
+  const openBtnText = document.createTextNode('Dare')
+  createOpenBtn.classList.add('open-modal', 'fade-in')
+  createOpenBtn.appendChild(openBtnText)
+  addBtn.appendChild(createOpenBtn)  
 }
 
-window.setTimeout(quotePick(), 3000)
+setTimeout(quotePick, 2000)
 
-// openModal.addEventListener('click', function(e) {
-//   e.preventDefault()
-//   modalPanel.style.display = 'block'
-// })
+function openModalBtn() {
+  document.querySelector('.open-modal').addEventListener('click', function(e) {
+    e.preventDefault()
+    modalPanel.style.display = 'block'
+  })
+}
+
+console.log(document.querySelector('.open-modal'))
+
+setTimeout(openModalBtn, 3000)

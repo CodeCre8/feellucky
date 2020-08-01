@@ -12,26 +12,34 @@
   <div id="container">
     <div id="wrapper">
       <div id="modal">
-        <header id="playerturn">
-          <h1 id="chance"><span id="numchance">0</span> Chance</h1>
-        </header>
-        <main id="app">
-          <section id="cards">
-            <section id="card1">
-              <h2>You</h2>
+        <div id="modal-content">
+          <div id="card">
+            <section id="secondtimer">
+              <h3>Number of Chance</h3>
+              <h1 id="chance">0</h1>
+              <h3>Good Luck!</h3>
             </section>
-            <section id="card2">
-              <h2>Fate</h2>
-            </section>
-          </section>
-        </main>
+            <main id="app">
+              <section id="cards">
+                <section id="card1">
+                  <h3>You</h3>
+                </section>
+                <section id="card2">
+                  <h3>Fate</h3>
+                </section>
+              </section>
+              <button id="playbtn">Do it!</button>
+            </main>
+          </div>
+        </div>
       </div>
       <div id="splash">
         <main id=quotesection>
-          <h1>Feel Lucky?</h1>
+          <h1 id="luckytitle">Feel Lucky?</h1>
           <p id="quotedisplay"></p>
           <p id="quotename"></p>
-          <button id="open-modal">Dare</button>
+          <div id="addbtn"></div>
+          <!-- <button id="open-modal" class="hidden">Dare</button> -->
         </main>
       </div>
     </div>
